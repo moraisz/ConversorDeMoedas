@@ -4,7 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 
 public class Data {
-    public static double compare(String c1, String c2) {
+    public static double getData(String c1, String c2) {
         String json = Connection.connect(c1, c2);
         Gson gson = new Gson();
 

@@ -12,14 +12,14 @@ public class Connection {
             String url = "https://v6.exchangerate-api.com/v6/45c2293a35e073f4061bec71/pair/"+c1+"/"+c2;
     
             // Criação da conexão
-            HttpURLConnection conexao = (HttpURLConnection) new URL(url).openConnection();
+            HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
             
             // Configuração da requisição
-            conexao.setRequestMethod("GET");
-            conexao.setRequestProperty("Content-Type", "application/json");
+            connection.setRequestMethod("GET");
+            connection.setRequestProperty("Content-Type", "application/json");
     
             // Leitura da resposta
-            BufferedReader reader = new BufferedReader(new InputStreamReader(conexao.getInputStream()));
+            BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
             String linha;
             StringBuilder resposta = new StringBuilder();
     
@@ -29,7 +29,7 @@ public class Connection {
             reader.close();
     
             // Fechamento da conexão
-            conexao.disconnect();
+            connection.disconnect();
 
             // Retorna a resposta
             return resposta.toString();
